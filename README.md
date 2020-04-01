@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/hpopp/tarot-cup.svg?branch=master)](https://travis-ci.org/hpopp/tarot-cup)
+![Docker Image Version (latest semver)](https://img.shields.io/docker/v/hpopp/tarot-cup)
+
 # TarotCup
 
 To start your Phoenix server:
