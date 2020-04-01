@@ -1,0 +1,147 @@
+[
+  {
+    "id": "waterfall",
+    "description": "Waterfall! The person who drew this card starts, followed by the next player, and so on. You cannot stop drinking until either the person before you stops or your drink runs out!"
+  },
+  {
+    "id": "you",
+    "description": "Choose someone to drink!"
+  },
+  {
+    "id": "me",
+    "description": "Take a drink!"
+  },
+  {
+    "id": "chicks",
+    "description": "Girls take a drink!"
+  },
+  {
+    "id": "drive",
+    "description": "Drive time! The player that drew this card starts by saying 'Vroom Up' or 'Vroom Down'. The next player in the list must say 'Vroom' to continue the direction of travel, or 'Erk' to reverse the direction. If you say the wrong word or pause too long, take a drink!"
+  },
+  {
+    "id": "guys",
+    "description": "Guys take a drink!"
+  },
+  {
+    "id": "heaven",
+    "description": "Last one to say heaven takes a drink!"
+  },
+  {
+    "id": "mate",
+    "description": "Choose a mate! Every time one of you drinks, the other does as well!"
+  },
+  {
+    "id": "rhyme",
+    "description": "Rhyme time! Pick a word and go in a circle rhyming with it. Player takes a drink if they pause too long or repeat a word that was already said!"
+  },
+  {
+    "id": "categories",
+    "description": "Categories! Pick a topic and go in a circle naming things in that category. Player takes a drink if they pause too long or repeat something that was already said!"
+  },
+  {
+    "id": "back",
+    "description": "Back! Reverse the draw order!"
+  },
+  {
+    "id": "never_ever",
+    "description": "Never have I ever! Go in a circle saying things you've never done. If you've done that thing, you get a mark against you. First one to three marks drinks!"
+  },
+  {
+    "id": "question_master",
+    "description": "Question master! If you ask someone a question they must answer with a question or else take a drink! This remains in effect until a new question master is chosen."
+  },
+  {
+    "id": "make_a_rule",
+    "description": "Aw yeah, make a rule! If someone violates this rule, they must take a drink!"
+  },
+  {
+    "id": "0-fool",
+    "description": "You're now the resident fool! All existing rules in play are cancelled, but mates still remain."
+  },
+  {
+    "id": "1-magician",
+    "description": "O wise one, predict if the next card will be Major or Minor arcana. If you're right, everyone else takes a drink! Otherwise, you take a drink."
+  },
+  {
+    "id": "2-high-priestess",
+    "description": "You're now the High Priestess! Everyone else must address you by this title or else they take a drink!"
+  },
+  {
+    "id": "3-empress",
+    "description": "Make a rule for only girls!"
+  },
+  {
+    "id": "4-emperor",
+    "description": "Make a rule for only guys!"
+  },
+  {
+    "id": "5-hierophant",
+    "description": "From your sacred studies you've learned that drinking is evil! You cannot utter 'drink', 'drank', or 'drunk' for the rest of the game or else you take a d****!"
+  },
+  {
+    "id": "6-lovers",
+    "description": "You're a matchmaker now! Cancel all existing mates and pair everyone off however you like. If there's an odd number of players, you don't get a mate :("
+  },
+  {
+    "id": "7-chariot",
+    "description": "Drive time with horses! Same rules, but instead of 'Vroom' say 'Neigh', and instead of 'Erk' say 'Winny'"
+  },
+  {
+    "id": "8-stength",
+    "description": "How strong are you? For every two pushups you can do, everyone else drinks one!"
+  },
+  {
+    "id": "9-hermit",
+    "description": "Guess you're a hermit now. Don't say anything until the next major arcana is drawn or else take a drink!"
+  },
+  {
+    "id": "10-wheel-of-fortune",
+    "description": "Feeling lucky? Bet a number of drinks with '!bet number'. If you're lucky, everyone drinks that amount. Else you drink it!"
+  },
+  {
+    "id": "11-justice",
+    "description": "Did someone make you drink a lot in this game? Make them drink that same amount!"
+  },
+  {
+    "id": "12-hanged-man",
+    "description": "Hang someone! Make them finish their drink."
+  },
+  {
+    "id": "13-death",
+    "description": "You died! Finish your drink."
+  },
+  {
+    "id": "14-temperance",
+    "description": "Get out of drink free! You can play this once only to get out of a drink."
+  },
+  {
+    "id": "15-devil",
+    "description": "You've become the devil! Change your nick to Satan and everyone else takes a drink!"
+  },
+  {
+    "id": "16-tower",
+    "description": "The tower sees all! You've been DM'd the next three cards."
+  },
+  {
+    "id": "17-star",
+    "description": "Post a star emoji in the chat! Last one takes a drink!"
+  },
+  {
+    "id": "18-moon",
+    "description": "Truth or dare? You picked truth!"
+  },
+  {
+    "id": "19-sun",
+    "description": "Truth or dare? You picked dare!"
+  },
+  {
+    "id": "20-judgement",
+    "description": "We're all gonna die! Time to play Thunderstruck! Drink in a circle while the song is playing, trading off only when they say the word 'Thunder'.",
+    "link": "https://www.youtube.com/watch?v=v2AC41dglnM"
+  },
+  {
+    "id": "21-world",
+    "description": "Social! Everyone take a drink!"
+  }
+]

@@ -1,0 +1,548 @@
+[
+  {
+    "id": "ace-swords",
+    "name": "Ace of Swords",
+    "rule_id": "waterfall",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/1/1a/Swords01.jpg"
+  },
+  {
+    "id": "2-swords",
+    "name": "Two of Swords",
+    "rule_id": "you",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/9/9e/Swords02.jpg"
+  },
+  {
+    "id": "3-swords",
+    "name": "Three of Swords",
+    "rule_id": "me",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/0/02/Swords03.jpg"
+  },
+  {
+    "id": "4-swords",
+    "name": "Four of Swords",
+    "rule_id": "chicks",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/b/bf/Swords04.jpg"
+  },
+  {
+    "id": "5-swords",
+    "name": "Five of Swords",
+    "rule_id": "drive",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/2/23/Swords05.jpg"
+  },
+  {
+    "id": "6-swords",
+    "name": "Six of Swords",
+    "rule_id": "guys",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/2/29/Swords06.jpg"
+  },
+  {
+    "id": "7-swords",
+    "name": "Seven of Swords",
+    "rule_id": "heaven",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/3/34/Swords07.jpg"
+  },
+  {
+    "id": "8-swords",
+    "name": "Eight of Swords",
+    "rule_id": "mate",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/a/a7/Swords08.jpg"
+  },
+  {
+    "id": "9-swords",
+    "name": "Nine of Swords",
+    "rule_id": "rhyme",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/2/2f/Swords09.jpg"
+  },
+  {
+    "id": "10-swords",
+    "name": "Ten of Swords",
+    "rule_id": "categories",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/d/d4/Swords10.jpg"
+  },
+  {
+    "id": "page-swords",
+    "name": "Page of Swords",
+    "rule_id": "back",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/4/4c/Swords11.jpg"
+  },
+  {
+    "id": "knight-swords",
+    "name": "Knight of Swords",
+    "rule_id": "never_ever",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/b/b0/Swords12.jpg"
+  },
+  {
+    "id": "queen-swords",
+    "name": "Queen of Swords",
+    "rule_id": "question_master",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/d/d4/Swords13.jpg"
+  },
+  {
+    "id": "king-swords",
+    "name": "King of Swords",
+    "rule_id": "make_a_rule",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/3/33/Swords14.jpg"
+  },
+  {
+    "id": "ace-cups",
+    "name": "Ace of Cups",
+    "rule_id": "waterfall",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/3/36/Cups01.jpg"
+  },
+  {
+    "id": "2-cups",
+    "name": "Two of Cups",
+    "rule_id": "you",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/f/f8/Cups02.jpg"
+  },
+  {
+    "id": "3-cups",
+    "name": "Three of Cups",
+    "rule_id": "me",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/7/7a/Cups03.jpg"
+  },
+  {
+    "id": "4-cups",
+    "name": "Four of Cups",
+    "rule_id": "chicks",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/3/35/Cups04.jpg"
+  },
+  {
+    "id": "5-cups",
+    "name": "Five of Cups",
+    "rule_id": "drive",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/d/d7/Cups05.jpg"
+  },
+  {
+    "id": "6-cups",
+    "name": "Six of Cups",
+    "rule_id": "guys",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/1/17/Cups06.jpg"
+  },
+  {
+    "id": "7-cups",
+    "name": "Seven of Cups",
+    "rule_id": "heaven",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/a/ae/Cups07.jpg"
+  },
+  {
+    "id": "8-cups",
+    "name": "Eight of Cups",
+    "rule_id": "mate",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/6/60/Cups08.jpg"
+  },
+  {
+    "id": "9-cups",
+    "name": "Nine of Cups",
+    "rule_id": "rhyme",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/2/24/Cups09.jpg"
+  },
+  {
+    "id": "10-cups",
+    "name": "Ten of Cups",
+    "rule_id": "categories",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/8/84/Cups10.jpg"
+  },
+  {
+    "id": "page-cups",
+    "name": "Page of Cups",
+    "rule_id": "back",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/a/ad/Cups11.jpg"
+  },
+  {
+    "id": "knight-cups",
+    "name": "Knight of Cups",
+    "rule_id": "never_ever",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/f/fa/Cups12.jpg"
+  },
+  {
+    "id": "queen-cups",
+    "name": "Queen of Cups",
+    "rule_id": "question_master",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/6/62/Cups13.jpg"
+  },
+  {
+    "id": "king-cups",
+    "name": "King of Cups",
+    "rule_id": "make_a_rule",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/0/04/Cups14.jpg"
+  },
+  {
+    "id": "ace-wands",
+    "name": "Ace of Wands",
+    "rule_id": "waterfall",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/1/11/Wands01.jpg"
+  },
+  {
+    "id": "2-wands",
+    "name": "Two of Wands",
+    "rule_id": "you",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/0/0f/Wands02.jpg"
+  },
+  {
+    "id": "3-wands",
+    "name": "Three of Wands",
+    "rule_id": "me",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/f/ff/Wands03.jpg"
+  },
+  {
+    "id": "4-wands",
+    "name": "Four of Wands",
+    "rule_id": "chicks",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/a/a4/Wands04.jpg"
+  },
+  {
+    "id": "5-wands",
+    "name": "Five of Wands",
+    "rule_id": "drive",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/9/9d/Wands05.jpg"
+  },
+  {
+    "id": "6-wands",
+    "name": "Six of Wands",
+    "rule_id": "guys",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/3/3b/Wands06.jpg"
+  },
+  {
+    "id": "7-wands",
+    "name": "Seven of Wands",
+    "rule_id": "heaven",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/e/e4/Wands07.jpg"
+  },
+  {
+    "id": "8-wands",
+    "name": "Eight of Wands",
+    "rule_id": "mate",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/6/6b/Wands08.jpg"
+  },
+  {
+    "id": "9-wands",
+    "name": "Nine of Wands",
+    "rule_id": "rhyme",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/e/e7/Wands09.jpg"
+  },
+  {
+    "id": "10-wands",
+    "name": "Ten of Wands",
+    "rule_id": "categories",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/0/0b/Wands10.jpg"
+  },
+  {
+    "id": "page-wands",
+    "name": "Page of Wands",
+    "rule_id": "back",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/6/6a/Wands11.jpg"
+  },
+  {
+    "id": "knight-wands",
+    "name": "Knight of Wands",
+    "rule_id": "never_ever",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/1/16/Wands12.jpg"
+  },
+  {
+    "id": "queen-wands",
+    "name": "Queen of Wands",
+    "rule_id": "question_master",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/0/0d/Wands13.jpg"
+  },
+  {
+    "id": "king-wands",
+    "name": "King of Wands",
+    "rule_id": "make_a_rule",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/c/ce/Wands14.jpg"
+  },
+  {
+    "id": "ace-pentacles",
+    "name": "Ace of Pentacles",
+    "rule_id": "waterfall",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/f/fd/Pents01.jpg"
+  },
+  {
+    "id": "2-pentacles",
+    "name": "Two of Pentacles",
+    "rule_id": "you",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/9/9f/Pents02.jpg"
+  },
+  {
+    "id": "3-pentacles",
+    "name": "Three of Pentacles",
+    "rule_id": "me",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/4/42/Pents03.jpg"
+  },
+  {
+    "id": "4-pentacles",
+    "name": "Four of Pentacles",
+    "rule_id": "chicks",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/3/35/Pents04.jpg"
+  },
+  {
+    "id": "5-pentacles",
+    "name": "Five of Pentacles",
+    "rule_id": "drive",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/9/96/Pents05.jpg"
+  },
+  {
+    "id": "6-pentacles",
+    "name": "Six of Pentacles",
+    "rule_id": "guys",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/a/a6/Pents06.jpg"
+  },
+  {
+    "id": "7-pentacles",
+    "name": "Seven of Pentacles",
+    "rule_id": "heaven",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/6/6a/Pents07.jpg"
+  },
+  {
+    "id": "8-pentacles",
+    "name": "Eight of Pentacles",
+    "rule_id": "mate",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/4/49/Pents08.jpg"
+  },
+  {
+    "id": "9-pentacles",
+    "name": "Nine of Pentacles",
+    "rule_id": "rhyme",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/f/f0/Pents09.jpg"
+  },
+  {
+    "id": "10-pentacles",
+    "name": "Ten of Pentacles",
+    "rule_id": "categories",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/4/42/Pents10.jpg"
+  },
+  {
+    "id": "page-pentacles",
+    "name": "Page of Pentacles",
+    "rule_id": "back",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/e/ec/Pents11.jpg"
+  },
+  {
+    "id": "knight-pentacles",
+    "name": "Knight of Pentacles",
+    "rule_id": "never_ever",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/d/d5/Pents12.jpg"
+  },
+  {
+    "id": "queen-pentacles",
+    "name": "Queen of Pentacles",
+    "rule_id": "question_master",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/8/88/Pents13.jpg"
+  },
+  {
+    "id": "king-pentacles",
+    "name": "King of Pentacles",
+    "rule_id": "make_a_rule",
+    "arcana": "minor",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/1/1c/Pents14.jpg"
+  },
+  {
+    "id": "0-fool",
+    "name": "The Fool",
+    "rule_id": "0-fool",
+    "arcana": "major",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/9/90/RWS_Tarot_00_Fool.jpg"
+  },
+  {
+    "id": "1-magician",
+    "name": "The Magician",
+    "rule_id": "1-magician",
+    "arcana": "major",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/d/de/RWS_Tarot_01_Magician.jpg"
+  },
+  {
+    "id": "2-high-priestess",
+    "name": "The High Priestess",
+    "rule_id": "2-high-priestess",
+    "arcana": "major",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/8/88/RWS_Tarot_02_High_Priestess.jpg"
+  },
+  {
+    "id": "3-empress",
+    "name": "The Empress",
+    "rule_id": "3-empress",
+    "arcana": "major",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/d/d2/RWS_Tarot_03_Empress.jpg"
+  },
+  {
+    "id": "4-emperor",
+    "name": "The Emperor",
+    "rule_id": "4-emperor",
+    "arcana": "major",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/c/c3/RWS_Tarot_04_Emperor.jpg"
+  },
+  {
+    "id": "5-hierophant",
+    "name": "The Hierophant",
+    "rule_id": "5-hierophant",
+    "arcana": "major",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/8/8d/RWS_Tarot_05_Hierophant.jpg"
+  },
+  {
+    "id": "6-lovers",
+    "name": "The Lovers",
+    "rule_id": "6-lovers",
+    "arcana": "major",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/d/db/RWS_Tarot_06_Lovers.jpg"
+  },
+  {
+    "id": "7-chariot",
+    "name": "The Chariot",
+    "rule_id": "7-chariot",
+    "arcana": "major",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/9/9b/RWS_Tarot_07_Chariot.jpg"
+  },
+  {
+    "id": "8-strength",
+    "name": "Strength",
+    "rule_id": "8-strength",
+    "arcana": "major",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/f/f5/RWS_Tarot_08_Strength.jpg"
+  },
+  {
+    "id": "9-hermit",
+    "name": "The Hermit",
+    "rule_id": "9-hermit",
+    "arcana": "major",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/4/4d/RWS_Tarot_09_Hermit.jpg"
+  },
+  {
+    "id": "10-wheel-of-fortune",
+    "name": "Wheel of Fortune",
+    "rule_id": "10-wheel-of-fortune",
+    "arcana": "major",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/3/3c/RWS_Tarot_10_Wheel_of_Fortune.jpg"
+  },
+  {
+    "id": "11-justice",
+    "name": "Justice",
+    "rule_id": "11-justice",
+    "arcana": "major",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/e/e0/RWS_Tarot_11_Justice.jpg"
+  },
+  {
+    "id": "12-hanged-man",
+    "name": "The Hanged Man",
+    "rule_id": "12-hanged-man",
+    "arcana": "major",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/2/2b/RWS_Tarot_12_Hanged_Man.jpg"
+  },
+  {
+    "id": "13-death",
+    "name": "Death",
+    "rule_id": "13-death",
+    "arcana": "major",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/d/d7/RWS_Tarot_13_Death.jpg"
+  },
+  {
+    "id": "14-temperance",
+    "name": "Temperance",
+    "rule_id": "14-temperance",
+    "arcana": "major",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/f/f8/RWS_Tarot_14_Temperance.jpg"
+  },
+  {
+    "id": "15-devil",
+    "name": "The Devil",
+    "rule_id": "15-devil",
+    "arcana": "major",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/5/55/RWS_Tarot_15_Devil.jpg"
+  },
+  {
+    "id": "16-tower",
+    "name": "The Tower",
+    "rule_id": "16-tower",
+    "arcana": "major",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/5/53/RWS_Tarot_16_Tower.jpg"
+  },
+  {
+    "id": "17-star",
+    "name": "The Star",
+    "rule_id": "17-star",
+    "arcana": "major",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/d/db/RWS_Tarot_17_Star.jpg"
+  },
+  {
+    "id": "18-moon",
+    "name": "The Moon",
+    "rule_id": "18-moon",
+    "arcana": "major",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/7/7f/RWS_Tarot_18_Moon.jpg"
+  },
+  {
+    "id": "19-sun",
+    "name": "The Sun",
+    "rule_id": "19-sun",
+    "arcana": "major",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/1/17/RWS_Tarot_19_Sun.jpg"
+  },
+  {
+    "id": "20-judgement",
+    "name": "Judgement",
+    "rule_id": "20-judgement",
+    "arcana": "major",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/d/dd/RWS_Tarot_20_Judgement.jpg"
+  },
+  {
+    "id": "21-world",
+    "name": "The World",
+    "rule_id": "21-world",
+    "arcana": "major",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/f/ff/RWS_Tarot_21_World.jpg"
+  }
+]
