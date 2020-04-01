@@ -3,7 +3,30 @@ defmodule TarotCup.Command.Stats do
   alias Alchemy.Embed
   import Embed
 
-  @red_embed %Embed{color: 0xD44480}
+  @title "Tarot Cup"
+  @description "King's Cup, revised. A drinking game."
+  @yellow_embed %Embed{color: 0xF7DC54}
+
+  Cogs.def help do
+    info = [
+      {"**!draw**", "Draw a card from the deck."},
+      {"**!reset**", "Reset the game to a fresh deck."},
+      {"**!status**", "Check the number of cards remaining in the deck."},
+      {"**!bet n**", "Bet n number of drinks. Used in certain cards."},
+      {"**!info**", "Get information about this bot."}
+    ]
+
+    Enum.reduce(info, @yellow_embed, fn {name, value}, embed ->
+      field(embed, name, value)
+    end)
+    |> title(@title)
+    |> description("""
+    #{@description}
+
+    **Available commands:**
+    """)
+    |> Embed.send()
+  end
 
   # Returns a nicely formatted uptime string
   def uptime do
@@ -23,19 +46,24 @@ defmodule TarotCup.Command.Stats do
     # Memory is returned in bytes
     memory = div(:erlang.memory(:total), 1_000_000)
     processes = length(:erlang.processes())
+    version = to_string(Application.spec(:tarot_cup, :vsn))
 
     info = [
-      {"Version", "0.1.0"},
+      {"Version", version},
+      {"Library", "[Tarot Cup](https://github.com/hpopp/tarot-cup)"},
       {"Author", "hpopp\#5679"},
-      {"Uptime", uptime()},
+      {"Uptime", uptime() || "--"},
       {"Processes", "#{processes}"},
       {"Memory Usage", "#{memory} MB"}
     ]
 
-    Enum.reduce(info, @red_embed, fn {name, value}, embed ->
+    info
+    |> Enum.reduce(@yellow_embed, fn {name, value}, embed ->
       field(embed, name, value, inline: true)
     end)
-    |> title("Tarot Cup")
+    |> title(@title)
+    |> description(@description)
+    |> url("https://github.com/hpopp/tarot-cup")
     |> Embed.send()
   end
 
@@ -61,7 +89,7 @@ defmodule TarotCup.Command.Stats do
       {"Atom Memory", mem_format.(memories[:atom], :kb)}
     ]
 
-    Enum.reduce(info, @red_embed, fn {name, value}, embed ->
+    Enum.reduce(info, @yellow_embed, fn {name, value}, embed ->
       field(embed, name, value, inline: true)
     end)
     |> Embed.send()
