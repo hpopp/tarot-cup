@@ -4,6 +4,8 @@
 # TarotCup
 > A drinking game bot for Discord.
 
+![Tarot Cup](https://raw.githubusercontent.com/hpopp/tarot-cup/master/tarot-cup.jpg)
+
 ## Getting Started
 
 Run it with Docker.
