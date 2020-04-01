@@ -10,8 +10,15 @@ defmodule TarotCup.MixProject do
       deps: deps(),
       elixir: "~> 1.5",
       elixirc_paths: elixirc_paths(Mix.env()),
+      preferred_cli_env: [
+        coveralls: :test,
+        "coveralls.detail": :test,
+        "coveralls.post": :test,
+        "coveralls.html": :test
+      ],
       releases: releases(),
       start_permanent: Mix.env() == :prod,
+      test_coverage: [tool: ExCoveralls],
       version: @version
     ]
   end
@@ -32,6 +39,7 @@ defmodule TarotCup.MixProject do
       {:alchemy,
        git: "https://github.com/cronokirby/alchemy.git",
        ref: "d72ecb0f1a1b71f65cc748efd229df873893a43f"},
+      {:excoveralls, "~> 0.5", only: :test},
       {:faker, "~> 0.11", only: [:dev, :test]},
       {:poison, "~> 4.0"},
       {:timex, "~> 3.5"},
