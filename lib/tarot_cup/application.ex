@@ -3,11 +3,13 @@ defmodule TarotCup.Application do
 
   use Application
   alias Alchemy.Client
-  alias TarotCup.GameServerSupervisor
+  alias TarotCup.GameCleaner
 
   def start(_type, _args) do
     opts = [strategy: :one_for_one, name: TarotCup.Supervisor]
     result = Supervisor.start_link(children(), opts)
+
+    :games = PersistentEts.new(:games, games_data_path(), [:named_table, :public])
 
     if discord_token() do
       use TarotCup.Command.Game
@@ -21,8 +23,7 @@ defmodule TarotCup.Application do
     import Supervisor.Spec
 
     [
-      supervisor(Registry, [:unique, Registry.TarotCup]),
-      GameServerSupervisor,
+      GameCleaner,
       discord_client(discord_token())
     ]
     |> Enum.filter(& &1)
@@ -37,5 +38,13 @@ defmodule TarotCup.Application do
 
   defp discord_token do
     Application.get_env(:tarot_cup, :discord_token)
+  end
+
+  defp games_data_path do
+    [
+      Application.get_env(:tarot_cup, :datadir, ""),
+      "games.tab"
+    ]
+    |> Path.join()
   end
 end

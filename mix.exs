@@ -41,6 +41,7 @@ defmodule TarotCup.MixProject do
        ref: "d72ecb0f1a1b71f65cc748efd229df873893a43f"},
       {:excoveralls, "~> 0.5", only: :test},
       {:faker, "~> 0.11", only: [:dev, :test]},
+      {:persistent_ets, "~> 0.2.0"},
       {:poison, "~> 4.0"},
       {:timex, "~> 3.5"},
       {:uuid, "~> 1.1"}

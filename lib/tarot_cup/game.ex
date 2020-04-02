@@ -3,6 +3,7 @@ defmodule TarotCup.Game do
             unplayed_cards: [],
             played_cards: [],
             started_at: nil,
+            last_activity: nil,
             finished?: false
 
   alias TarotCup.{
@@ -16,7 +17,8 @@ defmodule TarotCup.Game do
     %__MODULE__{
       id: UUID.uuid4(),
       unplayed_cards: cards,
-      started_at: DateTime.utc_now()
+      started_at: DateTime.utc_now(),
+      last_activity: DateTime.utc_now()
     }
   end
 
@@ -36,5 +38,9 @@ defmodule TarotCup.Game do
          played_cards: [card_id | p_cards],
          finished?: rest == []
      }}
+  end
+
+  def update_last_activity(game) do
+    %{game | last_activity: DateTime.utc_now()}
   end
 end
