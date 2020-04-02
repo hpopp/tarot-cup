@@ -20,8 +20,6 @@ defmodule TarotCup.Application do
   end
 
   defp children do
-    import Supervisor.Spec
-
     [
       GameCleaner,
       discord_client(discord_token())

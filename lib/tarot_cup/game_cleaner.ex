@@ -48,10 +48,6 @@ defmodule TarotCup.GameCleaner do
 
   def expired?(game) do
     ago = DateTime.add(DateTime.utc_now(), -@expiration, :millisecond)
-
-    case DateTime.compare(game, ago) do
-      :lt -> true
-      _ -> false
-    end
+    DateTime.compare(game, ago) == :lt
   end
 end
