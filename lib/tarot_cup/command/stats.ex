@@ -1,6 +1,7 @@
 defmodule TarotCup.Command.Stats do
   use Alchemy.Cogs
   alias Alchemy.Embed
+  alias TarotCup.GameServer
   import Embed
 
   @title "Tarot Cup"
@@ -45,15 +46,15 @@ defmodule TarotCup.Command.Stats do
   Cogs.def info do
     # Memory is returned in bytes
     memory = div(:erlang.memory(:total), 1_000_000)
-    processes = length(:erlang.processes())
     version = to_string(Application.spec(:tarot_cup, :vsn))
+    games = GameServer.total()
 
     info = [
       {"Version", version},
       {"Library", "[Tarot Cup](https://github.com/hpopp/tarot-cup)"},
       {"Author", "hpopp\#5679"},
       {"Uptime", uptime() || "--"},
-      {"Processes", "#{processes}"},
+      {"Active Games", "#{games}"},
       {"Memory Usage", "#{memory} MB"}
     ]
 

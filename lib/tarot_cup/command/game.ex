@@ -7,10 +7,7 @@ defmodule TarotCup.Command.Game do
     Embed
   }
 
-  alias TarotCup.{
-    GameServer,
-    GameServerSupervisor
-  }
+  alias TarotCup.GameServer
 
   require Logger
 
@@ -25,23 +22,26 @@ defmodule TarotCup.Command.Game do
   end
 
   Cogs.def reset do
-    GameServer.stop(message.channel_id)
+    GameServer.reset(message.channel_id)
     Cogs.say("A new deck is ready.")
   end
 
   Cogs.def status do
-    channel_id = message.channel_id
-    GameServerSupervisor.start_server(channel_id)
+    message.channel_id
+    |> GameServer.status()
+    |> case do
+      {:ok, game} ->
+        game
+        |> game_embed()
+        |> Embed.send()
 
-    channel_id
-    |> GameServer.info()
-    |> game_embed()
-    |> Embed.send()
+      {:error, :nogame} ->
+        Cogs.say("No active game. !draw to start one.")
+    end
   end
 
   Cogs.def draw do
     channel_id = message.channel_id
-    GameServerSupervisor.start_server(channel_id)
 
     channel_id
     |> GameServer.draw()
@@ -63,12 +63,16 @@ defmodule TarotCup.Command.Game do
             :ok
         end
 
-        card
-        |> card_embed(message.author.username)
-        |> Embed.send("", file: image_path(card))
+        embed = card_embed(card, message.author.username)
+
+        if local_images?() do
+          Embed.send(embed, "", file: image_path(card))
+        else
+          Embed.send(embed)
+        end
 
       {:error, :finished} ->
-        Cogs.say("Game is already over, !reset to start a new game.")
+        Cogs.say("Game is already over, !draw to start a new game.")
     end
   end
 
@@ -91,12 +95,18 @@ defmodule TarotCup.Command.Game do
   end
 
   def card_embed(card, author) do
-    @yellow_embed
-    |> title(card["name"])
-    |> description(card["description"])
-    |> field("Arcana", String.capitalize(card["arcana"]), inline: true)
-    |> field("Drawer", "@#{author}", inline: true)
-    |> image("attachment://#{card["id"]}.jpg")
+    embed =
+      @yellow_embed
+      |> title(card["name"])
+      |> description(card["description"])
+      |> field("Arcana", String.capitalize(card["arcana"]), inline: true)
+      |> field("Drawer", "@#{author}", inline: true)
+
+    if local_images?() do
+      image(embed, "attachment://#{card["id"]}.jpg")
+    else
+      image(embed, "#{card["image_url"]}")
+    end
   end
 
   def game_embed(game) do
@@ -105,7 +115,10 @@ defmodule TarotCup.Command.Game do
     |> field("Cards Played", Enum.count(game.played_cards))
     |> field("Cards Remaining", Enum.count(game.unplayed_cards))
     |> field("Started At", format_dt(game.started_at))
+    |> field("Last Activity", format_dt(game.last_activity))
   end
+
+  defp local_images?, do: Application.get_env(:tarot_cup, :local_images?, false)
 
   defp format_dt(dt) do
     Timex.format!(dt, "{Mshort} {D}, {YYYY} :: {h24}:{m}:{s} UTC")

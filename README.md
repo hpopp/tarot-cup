@@ -11,7 +11,7 @@
 Run it with Docker.
 
 ```
-docker run -e DISCORD_TOKEN=botTokenGoesHere hpopp/tarot-cup:1.0.0
+docker run -e DISCORD_TOKEN=botTokenGoesHere hpopp/tarot-cup:1.2.0
 ```
 
 ## Available Commands
