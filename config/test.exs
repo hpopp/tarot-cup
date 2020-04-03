@@ -8,3 +8,6 @@ config :tarot_cup, TarotCupWeb.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
+
+config :nostrum,
+  token: System.get_env("DISCORD_TOKEN")

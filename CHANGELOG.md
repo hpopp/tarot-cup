@@ -1,5 +1,8 @@
 # Changelog
 
+# v1.3.0
+- Replaced Alchemy with Nostrum.
+
 # v1.2.0
 - Data persistence across restarts! Configure the path with `DATADIR` env variable.
 - Games are automatically cleaned up after 6 hours of inactivity.
