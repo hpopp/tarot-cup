@@ -88,8 +88,8 @@
     "description": "Drive time with horses! Same rules, but instead of 'Vroom' say 'Neigh', and instead of 'Erk' say 'Winny'"
   },
   {
-    "id": "8-stength",
-    "description": "How strong are you? For every two pushups you can do, everyone else drinks one!"
+    "id": "8-strength",
+    "description": "You're a hero! You must champion the drinks of Temperance when they call upon you!"
   },
   {
     "id": "9-hermit",
@@ -113,7 +113,7 @@
   },
   {
     "id": "14-temperance",
-    "description": "Get out of drink free! You can play this once only to get out of a drink."
+    "description": "Get out of drink free! You may ask whoever drew Strength to champion your drinks once only. If you also drew Strength, pick someone at random."
   },
   {
     "id": "15-devil",

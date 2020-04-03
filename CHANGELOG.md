@@ -1,5 +1,8 @@
 # Changelog
 
+# v1.3.1
+- Adjusted rules for Temperance and Strength.
+
 # v1.3.0
 - Replaced Alchemy with Nostrum.
 
