@@ -2,6 +2,7 @@
 ![Docker Image Version (latest semver)](https://img.shields.io/docker/v/hpopp/tarot-cup)
 
 # TarotCup
+
 > A drinking game bot for Discord.
 
 ![Tarot Cup](https://raw.githubusercontent.com/hpopp/tarot-cup/master/tarot-cup.jpg)
@@ -9,7 +10,6 @@
 ## What is this?
 
 Draw a card. Do what it says. With 78 cards in total, some people will get lucky, others not so much, but one thing is certain: everyone is getting drunk.
-
 
 ## Getting Started
 
@@ -29,9 +29,9 @@ There is a [publicly hosted bot available](https://discordapp.com/api/oauth2/aut
 Run it with Docker.
 
 ```
-docker run -e DISCORD_TOKEN=botTokenGoesHere hpopp/tarot-cup:1.3.0
+docker run -e DISCORD_TOKEN=botTokenGoesHere hpopp/tarot-cup:2.0.0
 ```
 
 ### Optional ENV Variables
+
 - `DATADIR` - Change the persistent data path (default `/tarot_cup`)
-- `LOCAL_IMAGES=1` - Add this flag to serve images from the bot instead of Wikipedia links.
