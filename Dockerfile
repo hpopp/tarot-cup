@@ -1,4 +1,4 @@
-FROM codedgellc/alpine-elixir-phoenix:1.10.2 as builder
+FROM codedgellc/alpine-elixir-phoenix:1.14 as builder
 
 WORKDIR /tarot_cup
 
@@ -6,26 +6,31 @@ ARG VERSION
 
 ENV MIX_ENV prod
 
-RUN apk upgrade --no-cache && \
-    apk add --no-cache bash git openssh
+RUN apk add --update --no-cache bash git openssh openssl
+RUN mix do local.hex --force, local.rebar --force
 
 COPY mix.exs mix.lock VERSION ./
 COPY config config
-COPY lib lib
 COPY priv priv
+COPY rel rel
+COPY lib lib
 RUN mix do deps.get, deps.compile
 
 RUN mix release tarot_cup
 
-# Run Release
-FROM alpine:3.9
+FROM alpine:3
 
-RUN apk upgrade --no-cache && \
-    apk add --no-cache bash openssl curl
+RUN apk add --update --no-cache bash git libstdc++ ncurses-libs openssl1.1-compat
+
+WORKDIR /app
+
+RUN chown nobody:nobody /app
+
+USER nobody:nobody
+
+COPY --from=builder --chown=nobody:nobody /tarot_cup/dist/ ./
 
 ENV MIX_ENV prod
+ENV HOME=/app
 
-WORKDIR /tarot_cup
-COPY --from=builder /tarot_cup/dist/ .
-
-CMD ["sh", "-c", "/tarot_cup/bin/tarot_cup start"]
+CMD ["bin/tarot_cup", "start"]

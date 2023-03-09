@@ -8,13 +8,13 @@ defmodule TarotCup.Handler.Stats do
   @description "King's Cup, revised. A drinking game."
   @yellow 0xF7DC54
 
-  def handle_help(channel_id) do
+  def handle_help(interaction) do
     info = [
-      {"**!draw**", "Draw a card from the deck."},
-      {"**!reset**", "Reset the game to a fresh deck."},
-      {"**!status**", "Check the number of cards remaining in the deck."},
-      {"**!bet n**", "Bet n number of drinks. Used in certain cards."},
-      {"**!info**", "Get information about this bot."}
+      {"**/draw**", "Draw a card from the deck."},
+      {"**/reset**", "Reset the game to a fresh deck."},
+      {"**/status**", "Check the number of cards remaining in the deck."},
+      {"**/bet n**", "Bet n number of drinks. Used in certain cards."},
+      {"**/info**", "Get information about this bot."}
     ]
 
     embed =
@@ -28,10 +28,11 @@ defmodule TarotCup.Handler.Stats do
       |> Embed.put_color(@yellow)
       |> put_fields(info)
 
-    Api.create_message(channel_id, embed: embed)
+    response = %{type: 4, data: %{embeds: [embed]}}
+    Api.create_interaction_response(interaction, response)
   end
 
-  def handle_project_info(channel_id) do
+  def handle_project_info(interaction) do
     # Memory is returned in bytes
     memory = div(:erlang.memory(:total), 1_000_000)
     version = to_string(Application.spec(:tarot_cup, :vsn))
@@ -40,7 +41,7 @@ defmodule TarotCup.Handler.Stats do
     info = [
       {"Version", version},
       {"Library", "[Tarot Cup](https://github.com/hpopp/tarot-cup)"},
-      {"Author", "hpopp\#5679"},
+      {"Author", "storm.drain\#0001"},
       {"Uptime", uptime() || "--"},
       {"Active Games", "#{games}"},
       {"Memory Usage", "#{memory} MB"}
@@ -54,10 +55,11 @@ defmodule TarotCup.Handler.Stats do
       |> Embed.put_url("https://github.com/hpopp/tarot-cup")
       |> put_fields(info, true)
 
-    Api.create_message(channel_id, embed: embed)
+    response = %{type: 4, data: %{embeds: [embed]}}
+    Api.create_interaction_response(interaction, response)
   end
 
-  def handle_sysinfo(channel_id) do
+  def handle_sysinfo(interaction) do
     memories = :erlang.memory()
     processes = length(:erlang.processes())
     {{_, io_input}, {_, io_output}} = :erlang.statistics(:io)
@@ -84,7 +86,8 @@ defmodule TarotCup.Handler.Stats do
       |> Embed.put_color(@yellow)
       |> put_fields(info, true)
 
-    Api.create_message(channel_id, embed: embed)
+    response = %{type: 4, data: %{embeds: [embed]}}
+    Api.create_interaction_response(interaction, response)
   end
 
   defp put_fields(embed, fields, inline \\ nil) do
