@@ -22,4 +22,11 @@ erl_crash.dump
 # Ignore package tarball (built via "mix hex.build").
 tarot_cup-*.tar
 
+# Ignore direnv
+.envrc
+
+# Various
+.DS_Store
+*.swp
+
 games.tab

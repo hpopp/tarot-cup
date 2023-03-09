@@ -1,5 +1,17 @@
 # Changelog
 
+# v2.0.0 - 2023-03-09
+
+### Changed
+
+- Tarot cup now uses slash commands! Same commands as before, just
+  with the new chat slash command flow.
+
+### Removed
+
+- LOCAL_IMAGES env flag has been removed. Card images now default
+  to the locally hosted ones.
+
 # v1.3.2
 
 - Update hex dependencies.

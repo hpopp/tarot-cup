@@ -6,64 +6,71 @@ defmodule TarotCup.Handler.Game do
 
   @yellow 0xF7DC54
 
-  def handle_draw(msg) do
-    msg.channel_id
+  def handle_draw(interaction) do
+    interaction.channel_id
     |> GameServer.draw()
     |> case do
       {:ok, card} ->
         case card do
           %{"id" => "16-tower"} ->
             cards =
-              msg.channel_id
+              interaction.channel_id
               |> GameServer.peek(3)
               |> elem(1)
               |> Enum.map(& &1["name"])
               |> Enum.join(", ")
 
-            {:ok, chan} = Api.create_dm(msg.author.id)
+            {:ok, chan} = Api.create_dm(interaction.user.id)
             Api.create_message(chan.id, cards)
 
           _else ->
             :ok
         end
 
-        embed = card_embed(card, msg.author.username)
+        embed = card_embed(card, interaction.user.id)
+        file = image_path(card)
 
-        if local_images?() do
-          file = image_path(card)
-          Api.create_message(msg.channel_id, file: file)
-        else
-          embed = Embed.put_image(embed, card["image_url"])
-          Api.create_message(msg.channel_id, embed: embed)
-        end
+        response = %{type: 4, data: %{file: file, embeds: [embed]}}
+        Api.create_interaction_response(interaction, response)
 
       {:error, :finished} ->
-        Api.create_message(msg.channel_id, "Game is already over, !reset to start a new game.")
+        msg = "Game is already over, !reset to start a new game."
+        response = %{type: 4, data: %{content: msg}}
+        Api.create_interaction_response(interaction, response)
     end
   end
 
-  def handle_bet(channel_id, count) do
-    [result] = Enum.take_random([true, false], 1)
+  def handle_bet(interaction, count) do
+    [result] =
+      Enum.take_random(
+        [
+          "Congrats! Everyone else drinks #{count}.",
+          "Ooof, you gotta drink #{count}."
+        ],
+        1
+      )
 
-    if result do
-      Api.create_message(channel_id, "Congrats! Everyone else drinks #{count}.")
-    else
-      Api.create_message(channel_id, "Ooof, you gotta drink #{count}.")
-    end
+    response = %{type: 4, data: %{content: result}}
+    Api.create_interaction_response(interaction, response)
   end
 
-  def handle_reset(channel_id) do
-    GameServer.reset(channel_id)
-    Api.create_message(channel_id, "A new deck is ready.")
+  def handle_reset(interaction) do
+    GameServer.reset(interaction.channel_id)
+
+    response = %{type: 4, data: %{content: "A new deck is ready."}}
+    Api.create_interaction_response(interaction, response)
   end
 
-  def handle_status(channel_id) do
-    channel_id
-    |> GameServer.status()
-    |> case do
-      {:ok, game} -> Api.create_message(channel_id, embed: game_embed(game))
-      {:error, :nogame} -> Api.create_message(channel_id, "No active game. !draw to start one.")
-    end
+  def handle_status(interaction) do
+    response =
+      interaction.channel_id
+      |> GameServer.status()
+      |> case do
+        {:ok, game} -> %{type: 4, data: %{embeds: [game_embed(game)]}}
+        {:error, :nogame} -> %{type: 4, data: %{content: "No active game. /draw to start one."}}
+      end
+
+    Api.create_interaction_response(interaction, response)
   end
 
   defp card_embed(card, author) do
@@ -72,7 +79,7 @@ defmodule TarotCup.Handler.Game do
     |> Embed.put_description(card["description"])
     |> Embed.put_color(@yellow)
     |> Embed.put_field("Arcana", String.capitalize(card["arcana"]), true)
-    |> Embed.put_field("Drawer", "@#{author}", true)
+    |> Embed.put_field("Drawer", "<@#{author}>", true)
   end
 
   def game_embed(game) do
