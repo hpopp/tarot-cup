@@ -1,5 +1,12 @@
 # Changelog
 
+# v2.0.1 - 2023-03-13
+
+### Added
+
+- Configure log level with `LOG_LEVEL` environment variable.
+  Acceptable values: `debug`, `info`, `warn`, `error` (default `info`).
+
 # v2.0.0 - 2023-03-09
 
 ### Changed
