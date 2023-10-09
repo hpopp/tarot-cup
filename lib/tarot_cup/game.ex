@@ -11,15 +11,19 @@ defmodule TarotCup.Game do
     Rule
   }
 
-  def new do
-    cards = Enum.shuffle(TarotCup.Card.all_ids())
+  require OpenTelemetry.Tracer
 
-    %__MODULE__{
-      id: UUID.uuid4(),
-      unplayed_cards: cards,
-      started_at: DateTime.utc_now(),
-      last_activity: DateTime.utc_now()
-    }
+  def new do
+    OpenTelemetry.Tracer.with_span :game_new do
+      cards = Enum.shuffle(TarotCup.Card.all_ids())
+
+      %__MODULE__{
+        id: UUID.uuid4(),
+        unplayed_cards: cards,
+        started_at: DateTime.utc_now(),
+        last_activity: DateTime.utc_now()
+      }
+    end
   end
 
   def draw(%{unplayed_cards: []}) do
@@ -27,17 +31,19 @@ defmodule TarotCup.Game do
   end
 
   def draw(%{unplayed_cards: u_cards, played_cards: p_cards} = game) do
-    [card_id | rest] = u_cards
-    card = Card.get(card_id)
-    card = Map.put(card, "description", Rule.get(card["rule_id"])["description"])
+    OpenTelemetry.Tracer.with_span :game_draw do
+      [card_id | rest] = u_cards
+      card = Card.get(card_id)
+      card = Map.put(card, "description", Rule.get(card["rule_id"])["description"])
 
-    {:ok, card,
-     %{
-       game
-       | unplayed_cards: rest,
-         played_cards: [card_id | p_cards],
-         finished?: rest == []
-     }}
+      {:ok, card,
+       %{
+         game
+         | unplayed_cards: rest,
+           played_cards: [card_id | p_cards],
+           finished?: rest == []
+       }}
+    end
   end
 
   def update_last_activity(game) do

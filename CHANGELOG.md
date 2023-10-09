@@ -1,5 +1,20 @@
 # Changelog
 
+# v2.0.2 - 2023-10-09
+
+### Added
+
+- OpenTelemetry to export telemetry.
+- Jason for json decoding.
+
+### Changed
+
+- Upgraded dependencies: ssl_verify_fun: 1.1.7, timex: 3.7.11
+
+### Removed
+
+- Removed dependencies: excoveralls, poison
+
 # v2.0.1 - 2023-03-13
 
 ### Added
