@@ -3,7 +3,7 @@ defmodule TarotCup.Rule do
 
   @all_rules "#{:code.priv_dir(:tarot_cup)}/rules.json"
              |> File.read!()
-             |> Poison.decode!()
+             |> Jason.decode!()
 
   def all, do: @all_rules
 
