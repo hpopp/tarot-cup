@@ -3,74 +3,83 @@ defmodule TarotCup.Handler.Game do
   alias Nostrum.Struct.Embed
   alias TarotCup.GameServer
   require Logger
+  require OpenTelemetry.Tracer
 
   @yellow 0xF7DC54
 
   def handle_draw(interaction) do
-    interaction.channel_id
-    |> GameServer.draw()
-    |> case do
-      {:ok, card} ->
-        case card do
-          %{"id" => "16-tower"} ->
-            cards =
-              interaction.channel_id
-              |> GameServer.peek(3)
-              |> elem(1)
-              |> Enum.map(& &1["name"])
-              |> Enum.join(", ")
+    OpenTelemetry.Tracer.with_span :game_handle_draw do
+      interaction.channel_id
+      |> GameServer.draw()
+      |> case do
+        {:ok, card} ->
+          case card do
+            %{"id" => "16-tower"} ->
+              cards =
+                interaction.channel_id
+                |> GameServer.peek(3)
+                |> elem(1)
+                |> Enum.map(& &1["name"])
+                |> Enum.join(", ")
 
-            {:ok, chan} = Api.create_dm(interaction.user.id)
-            Api.create_message(chan.id, cards)
+              {:ok, chan} = Api.create_dm(interaction.user.id)
+              Api.create_message(chan.id, cards)
 
-          _else ->
-            :ok
-        end
+            _else ->
+              :ok
+          end
 
-        embed = card_embed(card, interaction.user.id)
-        file = image_path(card)
+          embed = card_embed(card, interaction.user.id)
+          file = image_path(card)
 
-        response = %{type: 4, data: %{file: file, embeds: [embed]}}
-        Api.create_interaction_response(interaction, response)
+          response = %{type: 4, data: %{file: file, embeds: [embed]}}
+          Api.create_interaction_response(interaction, response)
 
-      {:error, :finished} ->
-        msg = "Game is already over, !reset to start a new game."
-        response = %{type: 4, data: %{content: msg}}
-        Api.create_interaction_response(interaction, response)
+        {:error, :finished} ->
+          msg = "Game is already over, !reset to start a new game."
+          response = %{type: 4, data: %{content: msg}}
+          Api.create_interaction_response(interaction, response)
+      end
     end
   end
 
   def handle_bet(interaction, count) do
-    [result] =
-      Enum.take_random(
-        [
-          "Congrats! Everyone else drinks #{count}.",
-          "Ooof, you gotta drink #{count}."
-        ],
-        1
-      )
+    OpenTelemetry.Tracer.with_span :game_handle_bet do
+      [result] =
+        Enum.take_random(
+          [
+            "Congrats! Everyone else drinks #{count}.",
+            "Ooof, you gotta drink #{count}."
+          ],
+          1
+        )
 
-    response = %{type: 4, data: %{content: result}}
-    Api.create_interaction_response(interaction, response)
+      response = %{type: 4, data: %{content: result}}
+      Api.create_interaction_response(interaction, response)
+    end
   end
 
   def handle_reset(interaction) do
-    GameServer.reset(interaction.channel_id)
+    OpenTelemetry.Tracer.with_span :game_handle_reset do
+      GameServer.reset(interaction.channel_id)
 
-    response = %{type: 4, data: %{content: "A new deck is ready."}}
-    Api.create_interaction_response(interaction, response)
+      response = %{type: 4, data: %{content: "A new deck is ready."}}
+      Api.create_interaction_response(interaction, response)
+    end
   end
 
   def handle_status(interaction) do
-    response =
-      interaction.channel_id
-      |> GameServer.status()
-      |> case do
-        {:ok, game} -> %{type: 4, data: %{embeds: [game_embed(game)]}}
-        {:error, :nogame} -> %{type: 4, data: %{content: "No active game. /draw to start one."}}
-      end
+    OpenTelemetry.Tracer.with_span :game_handle_status do
+      response =
+        interaction.channel_id
+        |> GameServer.status()
+        |> case do
+          {:ok, game} -> %{type: 4, data: %{embeds: [game_embed(game)]}}
+          {:error, :nogame} -> %{type: 4, data: %{content: "No active game. /draw to start one."}}
+        end
 
-    Api.create_interaction_response(interaction, response)
+      Api.create_interaction_response(interaction, response)
+    end
   end
 
   defp card_embed(card, author) do

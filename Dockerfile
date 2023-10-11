@@ -1,4 +1,4 @@
-FROM codedgellc/alpine-elixir-phoenix:1.14 as builder
+FROM elixir:1.15 as builder
 
 WORKDIR /tarot_cup
 

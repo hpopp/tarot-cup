@@ -3,91 +3,98 @@ defmodule TarotCup.Handler.Stats do
   alias Nostrum.Struct.Embed
   alias TarotCup.GameServer
   require Logger
+  require OpenTelemetry.Tracer
 
   @title "Tarot Cup"
   @description "King's Cup, revised. A drinking game."
   @yellow 0xF7DC54
 
   def handle_help(interaction) do
-    info = [
-      {"**/draw**", "Draw a card from the deck."},
-      {"**/reset**", "Reset the game to a fresh deck."},
-      {"**/status**", "Check the number of cards remaining in the deck."},
-      {"**/bet n**", "Bet n number of drinks. Used in certain cards."},
-      {"**/info**", "Get information about this bot."}
-    ]
+    OpenTelemetry.Tracer.with_span :stats_handle_help do
+      info = [
+        {"**/draw**", "Draw a card from the deck."},
+        {"**/reset**", "Reset the game to a fresh deck."},
+        {"**/status**", "Check the number of cards remaining in the deck."},
+        {"**/bet n**", "Bet n number of drinks. Used in certain cards."},
+        {"**/info**", "Get information about this bot."}
+      ]
 
-    embed =
-      %Embed{}
-      |> Embed.put_title(@title)
-      |> Embed.put_description("""
-      #{@description}
+      embed =
+        %Embed{}
+        |> Embed.put_title(@title)
+        |> Embed.put_description("""
+        #{@description}
 
-      **Available commands:**
-      """)
-      |> Embed.put_color(@yellow)
-      |> put_fields(info)
+        **Available commands:**
+        """)
+        |> Embed.put_color(@yellow)
+        |> put_fields(info)
 
-    response = %{type: 4, data: %{embeds: [embed]}}
-    Api.create_interaction_response(interaction, response)
+      response = %{type: 4, data: %{embeds: [embed]}}
+      Api.create_interaction_response(interaction, response)
+    end
   end
 
   def handle_project_info(interaction) do
-    # Memory is returned in bytes
-    memory = div(:erlang.memory(:total), 1_000_000)
-    version = to_string(Application.spec(:tarot_cup, :vsn))
-    games = GameServer.total()
+    OpenTelemetry.Tracer.with_span :stats_handle_project_info do
+      # Memory is returned in bytes
+      memory = div(:erlang.memory(:total), 1_000_000)
+      version = to_string(Application.spec(:tarot_cup, :vsn))
+      games = GameServer.total()
 
-    info = [
-      {"Version", version},
-      {"Library", "[Tarot Cup](https://github.com/hpopp/tarot-cup)"},
-      {"Author", "storm.drain\#0001"},
-      {"Uptime", uptime() || "--"},
-      {"Active Games", "#{games}"},
-      {"Memory Usage", "#{memory} MB"}
-    ]
+      info = [
+        {"Version", version},
+        {"Library", "[Tarot Cup](https://github.com/hpopp/tarot-cup)"},
+        {"Author", "storm.drain\#0001"},
+        {"Uptime", uptime() || "--"},
+        {"Active Games", "#{games}"},
+        {"Memory Usage", "#{memory} MB"}
+      ]
 
-    embed =
-      %Embed{}
-      |> Embed.put_title(@title)
-      |> Embed.put_description(@description)
-      |> Embed.put_color(@yellow)
-      |> Embed.put_url("https://github.com/hpopp/tarot-cup")
-      |> put_fields(info, true)
+      embed =
+        %Embed{}
+        |> Embed.put_title(@title)
+        |> Embed.put_description(@description)
+        |> Embed.put_color(@yellow)
+        |> Embed.put_url("https://github.com/hpopp/tarot-cup")
+        |> put_fields(info, true)
 
-    response = %{type: 4, data: %{embeds: [embed]}}
-    Api.create_interaction_response(interaction, response)
+      response = %{type: 4, data: %{embeds: [embed]}}
+      Api.create_interaction_response(interaction, response)
+    end
   end
 
   def handle_sysinfo(interaction) do
-    memories = :erlang.memory()
-    processes = length(:erlang.processes())
-    {{_, io_input}, {_, io_output}} = :erlang.statistics(:io)
+    OpenTelemetry.Tracer.with_span :stats_handle_sysinfo do
+      memories = :erlang.memory()
+      processes = length(:erlang.processes())
+      {{_, io_input}, {_, io_output}} = :erlang.statistics(:io)
 
-    mem_format = fn
-      mem, :kb -> "#{div(mem, 1000)} KB"
-      mem, :mb -> "#{div(mem, 1_000_000)} MB"
+      mem_format = fn
+        mem, :kb -> "#{div(mem, 1000)} KB"
+        mem, :mb -> "#{div(mem, 1_000_000)} MB"
+      end
+
+      info = [
+        {"Uptime", uptime()},
+        {"Processes", "#{processes}"},
+        {"Total Memory", mem_format.(memories[:total], :mb)},
+        {"IO Input", mem_format.(io_input, :mb)},
+        {"Process Memory", mem_format.(memories[:processes], :mb)},
+        {"Code Memory", mem_format.(memories[:code], :mb)},
+        {"IO Output", mem_format.(io_output, :mb)},
+        {"ETS Memory", mem_format.(memories[:ets], :kb)},
+        {"Atom Memory", mem_format.(memories[:atom], :kb)}
+      ]
+
+      embed =
+        %Embed{}
+        |> Embed.put_color(@yellow)
+        |> put_fields(info, true)
+
+      response = %{type: 4, data: %{embeds: [embed]}}
+      Api.create_interaction_response(interaction, response)
     end
-
-    info = [
-      {"Uptime", uptime()},
-      {"Processes", "#{processes}"},
-      {"Total Memory", mem_format.(memories[:total], :mb)},
-      {"IO Input", mem_format.(io_input, :mb)},
-      {"Process Memory", mem_format.(memories[:processes], :mb)},
-      {"Code Memory", mem_format.(memories[:code], :mb)},
-      {"IO Output", mem_format.(io_output, :mb)},
-      {"ETS Memory", mem_format.(memories[:ets], :kb)},
-      {"Atom Memory", mem_format.(memories[:atom], :kb)}
-    ]
-
-    embed =
-      %Embed{}
-      |> Embed.put_color(@yellow)
-      |> put_fields(info, true)
-
-    response = %{type: 4, data: %{embeds: [embed]}}
-    Api.create_interaction_response(interaction, response)
   end
 
   defp put_fields(embed, fields, inline \\ nil) do

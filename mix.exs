@@ -8,17 +8,10 @@ defmodule TarotCup.MixProject do
       app: :tarot_cup,
       compilers: Mix.compilers(),
       deps: deps(),
-      elixir: "~> 1.5",
+      elixir: "~> 1.12",
       elixirc_paths: elixirc_paths(Mix.env()),
-      preferred_cli_env: [
-        coveralls: :test,
-        "coveralls.detail": :test,
-        "coveralls.post": :test,
-        "coveralls.html": :test
-      ],
       releases: releases(),
       start_permanent: Mix.env() == :prod,
-      test_coverage: [tool: ExCoveralls],
       version: @version
     ]
   end
@@ -36,13 +29,19 @@ defmodule TarotCup.MixProject do
 
   defp deps do
     [
-      {:excoveralls, "~> 0.5", only: :test},
       {:faker, "~> 0.11", only: [:dev, :test]},
+      {:jason, "~> 1.4"},
       {:nostrum, "~> 0.4"},
+      {:opentelemetry, "~> 1.0"},
+      {:opentelemetry_api, "~> 1.0"},
+      {:opentelemetry_exporter, "~> 1.0"},
       {:persistent_ets, "~> 0.2.0"},
-      {:poison, "~> 3.0"},
       {:timex, "~> 3.5"},
-      {:uuid, "~> 1.1"}
+      {:uuid, "~> 1.1"},
+
+      # ssl_verify_fun 1.1.6 was having issues
+      # manually specified to use latest version
+      {:ssl_verify_fun, "~> 1.1"}
     ]
   end
 
@@ -50,6 +49,8 @@ defmodule TarotCup.MixProject do
     [
       tarot_cup: [
         applications: [
+          opentelemetry_exporter: :permanent,
+          opentelemetry: :temporary,
           runtime_tools: :permanent
         ],
         include_executables_for: [:unix],
