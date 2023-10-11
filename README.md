@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.org/hpopp/tarot-cup.svg?branch=master)](https://travis-ci.org/hpopp/tarot-cup)
 ![Docker Image Version (latest semver)](https://img.shields.io/docker/v/hpopp/tarot-cup)
 
 # TarotCup
@@ -31,7 +30,7 @@ for anyone to use. Just click the link and add to any Discord server that you ma
 Run it with Docker.
 
 ```
-docker run -e DISCORD_TOKEN=botTokenGoesHere hpopp/tarot-cup:2.0.1
+docker run -e DISCORD_TOKEN=botTokenGoesHere hpopp/tarot-cup:2.0.2
 ```
 
 ### Optional ENV Variables
