@@ -6,10 +6,6 @@ defmodule TarotCup.Consumer do
     Stats
   }
 
-  def start_link do
-    Consumer.start_link(__MODULE__)
-  end
-
   def handle_event({:READY, _msg, _ws_state}) do
     register_commands()
     :ignore
