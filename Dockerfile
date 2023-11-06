@@ -1,4 +1,4 @@
-FROM elixir:1.15 as builder
+FROM elixir:1.15-alpine as builder
 
 WORKDIR /tarot_cup
 

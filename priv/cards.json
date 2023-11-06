@@ -392,70 +392,70 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/en/1/1c/Pents14.jpg"
   },
   {
-    "id": "0-fool",
+    "id": "00-fool",
     "name": "The Fool",
     "rule_id": "0-fool",
     "arcana": "major",
     "image_url": "https://upload.wikimedia.org/wikipedia/en/9/90/RWS_Tarot_00_Fool.jpg"
   },
   {
-    "id": "1-magician",
+    "id": "01-magician",
     "name": "The Magician",
     "rule_id": "1-magician",
     "arcana": "major",
     "image_url": "https://upload.wikimedia.org/wikipedia/en/d/de/RWS_Tarot_01_Magician.jpg"
   },
   {
-    "id": "2-high-priestess",
+    "id": "02-high-priestess",
     "name": "The High Priestess",
     "rule_id": "2-high-priestess",
     "arcana": "major",
     "image_url": "https://upload.wikimedia.org/wikipedia/en/8/88/RWS_Tarot_02_High_Priestess.jpg"
   },
   {
-    "id": "3-empress",
+    "id": "03-empress",
     "name": "The Empress",
     "rule_id": "3-empress",
     "arcana": "major",
     "image_url": "https://upload.wikimedia.org/wikipedia/en/d/d2/RWS_Tarot_03_Empress.jpg"
   },
   {
-    "id": "4-emperor",
+    "id": "04-emperor",
     "name": "The Emperor",
     "rule_id": "4-emperor",
     "arcana": "major",
     "image_url": "https://upload.wikimedia.org/wikipedia/en/c/c3/RWS_Tarot_04_Emperor.jpg"
   },
   {
-    "id": "5-hierophant",
+    "id": "05-hierophant",
     "name": "The Hierophant",
     "rule_id": "5-hierophant",
     "arcana": "major",
     "image_url": "https://upload.wikimedia.org/wikipedia/en/8/8d/RWS_Tarot_05_Hierophant.jpg"
   },
   {
-    "id": "6-lovers",
+    "id": "06-lovers",
     "name": "The Lovers",
     "rule_id": "6-lovers",
     "arcana": "major",
     "image_url": "https://upload.wikimedia.org/wikipedia/en/d/db/RWS_Tarot_06_Lovers.jpg"
   },
   {
-    "id": "7-chariot",
+    "id": "07-chariot",
     "name": "The Chariot",
     "rule_id": "7-chariot",
     "arcana": "major",
     "image_url": "https://upload.wikimedia.org/wikipedia/en/9/9b/RWS_Tarot_07_Chariot.jpg"
   },
   {
-    "id": "8-strength",
+    "id": "08-strength",
     "name": "Strength",
     "rule_id": "8-strength",
     "arcana": "major",
     "image_url": "https://upload.wikimedia.org/wikipedia/en/f/f5/RWS_Tarot_08_Strength.jpg"
   },
   {
-    "id": "9-hermit",
+    "id": "09-hermit",
     "name": "The Hermit",
     "rule_id": "9-hermit",
     "arcana": "major",

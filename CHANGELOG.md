@@ -1,5 +1,11 @@
 # Changelog
 
+# v2.0.4 - 2023-11-06
+
+### Fixed
+
+- Proper local image path for major aracana cards 00-09.
+
 # v2.0.3 - 2023-11-06
 
 ### Fixed
