@@ -1,5 +1,11 @@
 # Changelog
 
+# v2.0.3 - 2023-11-06
+
+### Fixed
+
+- Use latest Nostrum master for Discord http/2 fix.
+
 # v2.0.2 - 2023-10-09
 
 ### Added
