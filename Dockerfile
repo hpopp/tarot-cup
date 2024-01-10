@@ -20,7 +20,7 @@ RUN mix release tarot_cup
 
 FROM alpine:3
 
-RUN apk add --update --no-cache bash git libstdc++ ncurses-libs openssl1.1-compat
+RUN apk add --update --no-cache bash git libstdc++ ncurses-libs
 
 WORKDIR /app
 
