@@ -1,5 +1,12 @@
 # Changelog
 
+# v2.0.5 - 2024-01-15
+
+### Removed
+
+- Removed all unused references to remote Wikipedia card image assets.
+- Various internal cleanup.
+
 # v2.0.4 - 2023-11-06
 
 ### Fixed

@@ -1,6 +1,4 @@
 defmodule TarotCup.Card do
-  defstruct id: nil, name: nil, rule: nil, image_url: nil
-
   @all_cards "#{:code.priv_dir(:tarot_cup)}/cards.json"
              |> File.read!()
              |> Jason.decode!()
