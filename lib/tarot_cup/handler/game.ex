@@ -101,10 +101,6 @@ defmodule TarotCup.Handler.Game do
     |> Embed.put_field("Last Activity", format_dt(game.last_activity))
   end
 
-  defp local_images? do
-    Application.get_env(:tarot_cup, :local_images?, false)
-  end
-
   defp format_dt(dt) do
     Timex.format!(dt, "{Mshort} {D}, {YYYY} :: {h24}:{m}:{s} UTC")
   end
