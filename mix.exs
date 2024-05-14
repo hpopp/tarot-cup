@@ -31,8 +31,7 @@ defmodule TarotCup.MixProject do
     [
       {:faker, "~> 0.11", only: [:dev, :test]},
       {:jason, "~> 1.4"},
-      # {:nostrum, "~> 0.4"},
-      {:nostrum, github: "Kraigie/nostrum", branch: "master"},
+      {:nostrum, "~> 0.9"},
       {:opentelemetry, "~> 1.0"},
       {:opentelemetry_api, "~> 1.0"},
       {:opentelemetry_exporter, "~> 1.0"},
