@@ -33,7 +33,7 @@ for anyone to use. Just click the link and add to any Discord server that you ma
 Run it with Docker.
 
 ```
-docker run -e DISCORD_TOKEN=botTokenGoesHere hpopp/tarot-cup:2.0.2
+docker run -e DISCORD_TOKEN=botTokenGoesHere hpopp/tarot-cup:2.0.7
 ```
 
 ### Optional ENV Variables
