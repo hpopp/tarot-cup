@@ -1,4 +1,7 @@
-![Docker Image Version (latest semver)](https://img.shields.io/docker/v/hpopp/tarot-cup)
+[![CI](https://github.com/hpopp/tarot-cup/actions/workflows/ci.yml/badge.svg)](https://github.com/hpopp/tarot-cup/actions/workflows/ci.yml)
+[![Docker Image Version (latest semver)](https://img.shields.io/docker/v/hpopp/tarot-cup)](https://hub.docker.com/r/hpopp/tarot-cup)
+[![License](https://img.shields.io/github/license/hpopp/tarot-cup)](https://github.com/hpopp/tarot-cup/blob/master/LICENSE)
+[![Last Updated](https://img.shields.io/github/last-commit/hpopp/tarot-cup.svg)](https://github.com/hpopp/tarot-cup/commits/master)
 
 # TarotCup
 

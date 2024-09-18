@@ -27,6 +27,6 @@ tarot_cup-*.tar
 
 # Various
 .DS_Store
-*.swp
-
+.iex.exs
 games.tab
+*.swp
