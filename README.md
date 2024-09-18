@@ -1,13 +1,13 @@
 [![CI](https://github.com/hpopp/tarot-cup/actions/workflows/ci.yml/badge.svg)](https://github.com/hpopp/tarot-cup/actions/workflows/ci.yml)
 [![Docker Image Version (latest semver)](https://img.shields.io/docker/v/hpopp/tarot-cup)](https://hub.docker.com/r/hpopp/tarot-cup)
-[![License](https://img.shields.io/github/license/hpopp/tarot-cup)](https://github.com/hpopp/tarot-cup/blob/master/LICENSE)
-[![Last Updated](https://img.shields.io/github/last-commit/hpopp/tarot-cup.svg)](https://github.com/hpopp/tarot-cup/commits/master)
+[![License](https://img.shields.io/github/license/hpopp/tarot-cup)](https://github.com/hpopp/tarot-cup/blob/main/LICENSE)
+[![Last Updated](https://img.shields.io/github/last-commit/hpopp/tarot-cup.svg)](https://github.com/hpopp/tarot-cup/commits/main)
 
 # TarotCup
 
 > A drinking game bot for Discord.
 
-![Tarot Cup](https://raw.githubusercontent.com/hpopp/tarot-cup/master/tarot-cup.jpg)
+![Tarot Cup](https://raw.githubusercontent.com/hpopp/tarot-cup/main/tarot-cup.jpg)
 
 ## What is this?
 
@@ -45,4 +45,4 @@ docker run -e DISCORD_TOKEN=botTokenGoesHere hpopp/tarot-cup:2.0.7
 
 Copyright (c) 2020-2024 Henry Popp
 
-This library is MIT licensed. See the [LICENSE](https://github.com/hpopp/tarot-cup/blob/master/LICENSE) for details.
+This library is MIT licensed. See the [LICENSE](https://github.com/hpopp/tarot-cup/blob/main/LICENSE) for details.
