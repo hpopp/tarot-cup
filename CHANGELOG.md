@@ -1,5 +1,13 @@
 # Changelog
 
+# v2.0.7 - 2024-09-18
+
+### Changed
+
+- Upgraded to Elixir 1.17/OTP 27.
+- Upgraded dependencies.
+- Various Dockerfile optimizations.
+
 # v2.0.6 - 2024-05-14
 
 ### Changed
