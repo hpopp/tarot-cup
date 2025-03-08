@@ -1,5 +1,5 @@
 defmodule TarotCup.Handler.Stats do
-  alias Nostrum.Api
+  alias Nostrum.Api.Interaction
   alias Nostrum.Struct.Embed
   alias TarotCup.GameServer
   require Logger
@@ -31,7 +31,7 @@ defmodule TarotCup.Handler.Stats do
         |> put_fields(info)
 
       response = %{type: 4, data: %{embeds: [embed]}}
-      Api.create_interaction_response(interaction, response)
+      Interaction.create_response(interaction, response)
     end
   end
 
@@ -60,7 +60,7 @@ defmodule TarotCup.Handler.Stats do
         |> put_fields(info, true)
 
       response = %{type: 4, data: %{embeds: [embed]}}
-      Api.create_interaction_response(interaction, response)
+      Interaction.create_response(interaction, response)
     end
   end
 
@@ -93,7 +93,7 @@ defmodule TarotCup.Handler.Stats do
         |> put_fields(info, true)
 
       response = %{type: 4, data: %{embeds: [embed]}}
-      Api.create_interaction_response(interaction, response)
+      Interaction.create_response(interaction, response)
     end
   end
 
