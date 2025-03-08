@@ -32,16 +32,14 @@ defmodule TarotCup.MixProject do
       {:faker, "~> 0.11", only: [:dev, :test]},
       {:jason, "~> 1.4"},
       {:nostrum, "~> 0.9"},
+      {:logger_json, "~> 6.1"},
       {:opentelemetry, "~> 1.0"},
       {:opentelemetry_api, "~> 1.0"},
       {:opentelemetry_exporter, "~> 1.0"},
       {:persistent_ets, "~> 0.2.0"},
+      {:ssl_verify_fun, "~> 1.1"},
       {:timex, "~> 3.5"},
-      {:uuid, "~> 1.1"},
-
-      # ssl_verify_fun 1.1.6 was having issues
-      # manually specified to use latest version
-      {:ssl_verify_fun, "~> 1.1"}
+      {:uuid, "~> 1.1"}
     ]
   end
 

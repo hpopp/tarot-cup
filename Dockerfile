@@ -1,4 +1,4 @@
-FROM elixir:1.17-alpine as builder
+FROM elixir:1.18-alpine as builder
 
 LABEL org.opencontainers.image.authors="Henry Popp <henry@codedge.io>"
 LABEL org.opencontainers.image.source="https://github.com/hpopp/tarot-cup"
