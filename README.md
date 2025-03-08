@@ -33,16 +33,17 @@ for anyone to use. Just click the link and add to any Discord server that you ma
 Run it with Docker.
 
 ```
-docker run -e DISCORD_TOKEN=botTokenGoesHere hpopp/tarot-cup:2.0.7
+docker run -e DISCORD_TOKEN=botTokenGoesHere hpopp/tarot-cup:2.0.8
 ```
 
 ### Optional ENV Variables
 
 - `DATADIR` - Change the persistent data path (default `/tarot_cup`)
+- `GCP_PROJECT_ID` - GCP project identifier. Enables GCP formatted logging.
 - `LOG_LEVEL` - Change the logging level (default `info`)
 
 ## License
 
-Copyright (c) 2020-2024 Henry Popp
+Copyright (c) 2020-2025 Henry Popp
 
 This library is MIT licensed. See the [LICENSE](https://github.com/hpopp/tarot-cup/blob/main/LICENSE) for details.

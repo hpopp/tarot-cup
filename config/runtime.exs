@@ -16,6 +16,25 @@ if config_env() == :prod do
 
   # Optional
 
+  case System.get_env("GCP_PROJECT_ID") do
+    nil ->
+      :ok
+
+    project_id ->
+      version = :tarot_cup |> Application.spec() |> Keyword.get(:vsn) |> to_string()
+
+      opts = [
+        metadata: :all,
+        project_id: project_id,
+        service_context: %{
+          service: "tarot-cup",
+          version: version
+        }
+      ]
+
+      config :logger, :default_handler, formatter: {LoggerJSON.Formatters.GoogleCloud, opts}
+  end
+
   config :logger, level: String.to_atom(System.get_env("LOG_LEVEL", "info"))
 
   config :tarot_cup,

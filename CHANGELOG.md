@@ -1,5 +1,16 @@
 # Changelog
 
+# v2.0.8 - 2025-03-08
+
+### Added
+
+- Enable GCP formatted logging if `GCP_PROJECT_ID` environment variable is set.
+  [#10](https://github.com/hpopp/tarot-cup/pull/10)
+
+### Fixed
+
+- Updated deprecated Nostrum functions. [#10](https://github.com/hpopp/tarot-cup/pull/10)
+
 # v2.0.7 - 2024-09-18
 
 ### Changed
