@@ -45,7 +45,7 @@ defmodule TarotCup.Handler.Stats do
       info = [
         {"Version", version},
         {"Library", "[Tarot Cup](https://github.com/hpopp/tarot-cup)"},
-        {"Author", "storm.drain\#0001"},
+        {"Author", "storm.drain"},
         {"Uptime", uptime() || "--"},
         {"Active Games", "#{games}"},
         {"Memory Usage", "#{memory} MB"}
