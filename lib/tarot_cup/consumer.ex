@@ -1,10 +1,8 @@
 defmodule TarotCup.Consumer do
   use Nostrum.Consumer
 
-  alias TarotCup.Handler.{
-    Game,
-    Stats
-  }
+  alias Nostrum.Api.ApplicationCommand
+  alias TarotCup.Handler.{Game, Stats}
 
   def handle_event({:READY, _msg, _ws_state}) do
     register_commands()
@@ -91,7 +89,7 @@ defmodule TarotCup.Consumer do
     ]
 
     for command <- commands do
-      Nostrum.Api.create_global_application_command(command)
+      ApplicationCommand.create_global_command(command)
     end
   end
 end
