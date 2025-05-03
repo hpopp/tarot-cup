@@ -91,7 +91,7 @@ defmodule TarotCup.Consumer do
     ]
 
     for command <- commands do
-      Nostrum.Api.create_global_application_command(command)
+      Nostrum.Api.ApplicationCommand.create_global_command(command)
     end
   end
 end

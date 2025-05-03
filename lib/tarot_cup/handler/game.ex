@@ -22,8 +22,8 @@ defmodule TarotCup.Handler.Game do
                 |> Enum.map(& &1["name"])
                 |> Enum.join(", ")
 
-              {:ok, chan} = Api.create_dm(interaction.user.id)
-              Api.create_message(chan.id, cards)
+              {:ok, chan} = Api.User.create_dm(interaction.user.id)
+              Api.Message.create(chan.id, cards)
 
             _else ->
               :ok
@@ -33,12 +33,12 @@ defmodule TarotCup.Handler.Game do
           file = image_path(card)
 
           response = %{type: 4, data: %{file: file, embeds: [embed]}}
-          Api.create_interaction_response(interaction, response)
+          Api.Interaction.create_response(interaction, response)
 
         {:error, :finished} ->
           msg = "Game is already over, !reset to start a new game."
           response = %{type: 4, data: %{content: msg}}
-          Api.create_interaction_response(interaction, response)
+          Api.Interaction.create_response(interaction, response)
       end
     end
   end
@@ -55,7 +55,7 @@ defmodule TarotCup.Handler.Game do
         )
 
       response = %{type: 4, data: %{content: result}}
-      Api.create_interaction_response(interaction, response)
+      Api.Interaction.create_response(interaction, response)
     end
   end
 
@@ -64,7 +64,7 @@ defmodule TarotCup.Handler.Game do
       GameServer.reset(interaction.channel_id)
 
       response = %{type: 4, data: %{content: "A new deck is ready."}}
-      Api.create_interaction_response(interaction, response)
+      Api.Interaction.create_response(interaction, response)
     end
   end
 
@@ -78,7 +78,7 @@ defmodule TarotCup.Handler.Game do
           {:error, :nogame} -> %{type: 4, data: %{content: "No active game. /draw to start one."}}
         end
 
-      Api.create_interaction_response(interaction, response)
+      Api.Interaction.create_response(interaction, response)
     end
   end
 

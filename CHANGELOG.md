@@ -1,5 +1,20 @@
 # Changelog
 
+# v2.1.0 - 2025-05-02
+
+### Added
+
+- Enable GCP-formatted logging with `GCP_PROJECT_ID` environment variable.
+- Added proper OpenContainer labels to the Docker image.
+
+### Changed
+
+- Upgraded to Elixir 1.18.
+
+### Fixed
+
+- Updated deprecated Nostrum functions.
+
 # v2.0.7 - 2024-09-18
 
 ### Changed

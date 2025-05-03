@@ -39,10 +39,11 @@ docker run -e DISCORD_TOKEN=botTokenGoesHere hpopp/tarot-cup:2.0.7
 ### Optional ENV Variables
 
 - `DATADIR` - Change the persistent data path (default `/tarot_cup`)
+- `GCP_PROJECT_ID` - Enables GCP-formatted logging when set.
 - `LOG_LEVEL` - Change the logging level (default `info`)
 
 ## License
 
-Copyright (c) 2020-2024 Henry Popp
+Copyright (c) 2020-2025 Henry Popp
 
 This library is MIT licensed. See the [LICENSE](https://github.com/hpopp/tarot-cup/blob/main/LICENSE) for details.
