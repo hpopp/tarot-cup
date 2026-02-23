@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## Unreleased
+
+### Added
+
+- Better OpenContainer Dockerfile labels. [#12](https://github.com/hpopp/tarot-cup/pull/12)
+
+### Changed
+
+- Upgraded to Elixir 1.19/OTP 28. [#12](https://github.com/hpopp/tarot-cup/pull/12)
+- Upgraded dependencies. [#12](https://github.com/hpopp/tarot-cup/pull/12)
+
+### Fixed
+
+- Bot no longer permanently disconnects when Discord drops the websocket during
+  network outages. Added `ShardWatchdog` to detect lost Nostrum shards and
+  reconnect with Oban-style polynomial backoff. [#12](https://github.com/hpopp/tarot-cup/pull/12)
+
 # v2.0.8 - 2025-03-08
 
 ### Added
