@@ -32,7 +32,7 @@ defmodule TarotCup.MixProject do
       {:faker, "~> 0.11", only: [:dev, :test]},
       {:jason, "~> 1.4"},
       {:nostrum, "~> 0.9"},
-      {:logger_json, "~> 6.1"},
+      {:logger_json, "~> 7.0"},
       {:opentelemetry, "~> 1.0"},
       {:opentelemetry_api, "~> 1.0"},
       {:opentelemetry_exporter, "~> 1.0"},

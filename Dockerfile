@@ -1,7 +1,4 @@
-FROM elixir:1.18-alpine as builder
-
-LABEL org.opencontainers.image.authors="Henry Popp <henry@codedge.io>"
-LABEL org.opencontainers.image.source="https://github.com/hpopp/tarot-cup"
+FROM elixir:1.19-alpine AS builder
 
 WORKDIR /tarot_cup
 
@@ -35,6 +32,20 @@ COPY rel rel
 RUN mix release tarot_cup
 
 FROM alpine:3
+
+ARG CREATED
+ARG VERSION
+
+LABEL org.opencontainers.image.authors="Henry Popp <hello@hpopp.dev>"
+LABEL org.opencontainers.image.created="${CREATED}"
+LABEL org.opencontainers.image.description="A drinking game bot for Discord."
+LABEL org.opencontainers.image.documentation="https://github.com/hpopp/tarot-cup"
+LABEL org.opencontainers.image.licenses="MIT"
+LABEL org.opencontainers.image.source="https://github.com/hpopp/tarot-cup"
+LABEL org.opencontainers.image.title="TarotCup"
+LABEL org.opencontainers.image.url="https://github.com/hpopp/tarot-cup"
+LABEL org.opencontainers.image.vendor="Henry Popp"
+LABEL org.opencontainers.image.version="${VERSION}"
 
 RUN apk add --update --no-cache bash git libstdc++ ncurses-libs
 

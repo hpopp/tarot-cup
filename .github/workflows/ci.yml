@@ -13,23 +13,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v3
         with:
-          ref: ${{ github.head_ref }}
+          node-version: 18.x
+      - name: Install Prettier
+        run: npm install --global prettier
       - name: Run Prettier
-        uses: creyD/prettier_action@v4.3
-        with:
-          prettier_options: --check --no-error-on-unmatched-pattern "**/*.{json,md,yml,yaml}"
+        run: prettier --check --no-error-on-unmatched-pattern "**/*.{json,md,yml,yaml}"
   check:
     name: Mix Format
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Set up Elixir
         uses: erlef/setup-beam@v1
         with:
-          elixir-version: "1.18.2"
-          otp-version: "27"
+          elixir-version: "1.19.5"
+          otp-version: "28"
       - name: Restore dependencies cache
         uses: actions/cache@v3
         with:
@@ -46,23 +48,25 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Docker metadata
-        id: meta
-        uses: docker/metadata-action@v5
-        with:
-          images: |
-            hpopp/tarot-cup
-          tags: |
-            type=ref,event=pr
-            type=semver,pattern={{version}}
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
+      - name: Generate timestamp
+        id: timestamp
+        run: echo "timestamp=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_OUTPUT
+      - name: Read VERSION file
+        id: version
+        run: echo "version=$(cat VERSION)" >> $GITHUB_OUTPUT
       - name: Build and export
         uses: docker/build-push-action@v5
         with:
           context: .
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: |
+            hpopp/tarot-cup:${{ steps.version.outputs.version }}
+            hpopp/tarot-cup:latest
           outputs: type=docker,dest=/tmp/image.tar
+          build-args: |
+            CREATED=${{ steps.timestamp.outputs.timestamp }}
+            VERSION=${{ steps.version.outputs.version }}
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:

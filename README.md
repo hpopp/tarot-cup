@@ -44,6 +44,6 @@ docker run -e DISCORD_TOKEN=botTokenGoesHere hpopp/tarot-cup:2.0.8
 
 ## License
 
-Copyright (c) 2020-2025 Henry Popp
+Copyright (c) 2020-2026 Henry Popp
 
 This library is MIT licensed. See the [LICENSE](https://github.com/hpopp/tarot-cup/blob/main/LICENSE) for details.
