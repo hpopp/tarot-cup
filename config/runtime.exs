@@ -32,7 +32,7 @@ if config_env() == :prod do
         }
       ]
 
-      config :logger, :default_handler, formatter: {LoggerJSON.Formatters.GoogleCloud, opts}
+      config :logger, :default_handler, formatter: LoggerJSON.Formatters.GoogleCloud.new(opts)
   end
 
   config :logger, level: String.to_atom(System.get_env("LOG_LEVEL", "info"))

@@ -17,7 +17,8 @@ defmodule TarotCup.Application do
   defp children do
     [
       Consumer,
-      GameCleaner
+      GameCleaner,
+      TarotCup.ShardWatchdog
     ]
   end
 
